@@ -1,12 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://6pks3wsubsiy"]
 
-[ext_resource type="Script" path="res://Scenes/Game/Node2d.cs" id="1_4apma"]
+[ext_resource type="Script" path="res://Scenes/Game/Game.cs" id="1_38wk3"]
 [ext_resource type="Texture2D" uid="uid://x73jmi6p7wk3" path="res://assets/GameBg.png" id="2_dga7a"]
 [ext_resource type="PackedScene" uid="uid://b6rrca60hkdaw" path="res://Scenes/Paddle/Paddle.tscn" id="3_rrpkj"]
 [ext_resource type="PackedScene" uid="uid://dv1b4end3m8uk" path="res://Scenes/Gem/Gem.tscn" id="4_ncbq6"]
 
-[node name="Game" type="Node2D"]
-script = ExtResource("1_4apma")
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnTimer")]
+script = ExtResource("1_38wk3")
+_gemScene = ExtResource("4_ncbq6")
+_spawnTimer = NodePath("Timer")
 
 [node name="GameBg" type="Sprite2D" parent="."]
 position = Vector2(587, 323)
@@ -16,5 +18,12 @@ texture = ExtResource("2_dga7a")
 [node name="Paddle" parent="." instance=ExtResource("3_rrpkj")]
 position = Vector2(576, 586)
 
-[node name="Gem" parent="." instance=ExtResource("4_ncbq6")]
-position = Vector2(580, 36)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0000
+"
