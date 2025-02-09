@@ -4,7 +4,7 @@ int main()
 {
 
 	// Movement Variables
-	int _boxDirection = 10, speed = 10;
+	int _boxDirection = 5, speed = 3;
 	int circle_margin = 10, box_maring = 10;
 	// Tell the window to use vsync and work on high DPI displays
 	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
@@ -75,6 +75,11 @@ int main()
 				{
 					collision_with_box = true;
 				}
+				if (((cL_edge <= xV2) && (cR_edge > xV2)) && ( (cU_edge>=rect_y && cU_edge<=yV3) || (cD_edge>=rect_y) && (cD_edge<=yV3) ))
+				{
+					collision_with_box = true;
+				}
+				
 
 			}
 			// end the frame and get ready for the next one  (display frame, poll input, etc...)
